@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franco López Pintos - Portafolio</title>
+  <meta name="description" content="Portafolio de Franco López Pintos - Desarrollador Full Stack especializado en inteligencia artificial, análisis policial e investigación digital.">
+  <meta name="author" content="Franco López Pintos">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Franco López Pintos - Portafolio">
+  <meta property="og:description" content="Desarrollador Full Stack | IA | Investigación Digital">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tusitio.com">
+  <meta property="og:image" content="https://tusitio.com/imagen-portada.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Allison&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      color: #eee;
+      background: linear-gradient(-45deg, #120c3b, #3b0a67, #1a0033, #0d0d2b);
+      background-size: 1200% 1200%;
+      background-attachment: fixed;
+      animation: auroraMotion 12s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes auroraMotion {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 0%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+    section, header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+
+    }
+    section {
+      font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+    }
+    h1, h2 {
+    font-family: "Allison", cursive;
+  font-weight: 400;
+  font-style: normal;
+      animation: fadeInUp 1s ease-out;
+    }
+    h1{
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    header, section, footer {
+  position: relative;
+  z-index: 2;
+}
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .navbar-toggler {
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      z-index: 3000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-toggler span {
+      display: block;
+      position: relative;
+      width: 24px;
+      height: 2px;
+      background-color: white;
+      transition: background-color 0.3s ease;
+    }
+    .navbar-toggler span::before,
+    .navbar-toggler span::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: white;
+      transition: transform 0.3s ease, top 0.3s ease;
+    }
+    .navbar-toggler span::before { top: -8px; right: 0; }
+    .navbar-toggler span::after { top: 8px; right: 0; }
+    body.menu-open .navbar-toggler span { background-color: transparent; }
+    body.menu-open .navbar-toggler span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    body.menu-open .navbar-toggler span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+    #menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(15, 15, 15, 0.95);
+      z-index: 2000;
+      opacity: 0;
+      animation: fadeOutMenu 0.3s ease forwards;
+    }
+    body.menu-open #menu {
+      display: flex;
+      animation: fadeInMenu 0.4s ease forwards;
+    }
+    @keyframes fadeInMenu {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOutMenu {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    #menu .nav-link {
+      display: block;
+      text-align: center;
+      color: #eee;
+      font-weight: 500;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    #menu .nav-link:hover {
+      color: #3b82f6;
+      background-color: rgba(255,255,255,0.05);
+    }
+    footer {
+      background: #0f0f0f;
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    .card {
+      background-color: #1f1f2e;
+      color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .card-body { padding: 1.2rem; }
+    .card-footer { padding: 0.8rem 1.2rem; }
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+    .btn-outline-primary {
+  transition: all 0.3s ease-in-out;
+}
+
+.link-borde {
+  position: relative;
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  color: #0d6efd;
+  font-weight: 500;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 5px;
+  z-index: 1;
+  transition: color 0.1s ease, background-color 0.3s ease;
+}
+
+.link-borde span {
+  position: relative;
+z-index: 2;
+}
+
+/* Bottom: entrada → izquierda, salida ← derecha */
+.link-borde::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background: #0d6efd;
+  bottom: 0;
+  right: 0;
+  transition: width 0.3s ease;
+  transition-delay: 0.9s; /* salida */
+}
+.link-borde:hover::before {
+  width: 100%;
+  right: 0;
+  left: auto;
+  transition-delay: 0s; /* entrada */
+}
+
+/* Top: entrada → derecha, salida ← izquierda */
+.link-borde::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background: #0d6efd;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  transition-delay: 0.3s; /* salida */
+}
+.link-borde:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+  transition-delay: 0.6s; /* entrada */
+}
+
+/* Left: entrada ↑ arriba, salida ↓ abajo */
+.link-borde .border-left {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0%;
+  background: #0d6efd;
+  left: 0;
+  bottom: 0;
+  transition: height 0.3s ease;
+  transition-delay: 0.6s; /* salida */
+  z-index: 1;
+}
+.link-borde:hover .border-left {
+  height: 100%;
+  transition-delay: 0.3s; /* entrada */
+}
+
+/* Right: entrada ↓ abajo, salida ↑ arriba */
+.link-borde .border-right {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0%;
+  background: #0d6efd;
+  right: 0;
+  top: 0;
+  transition: height 0.3s ease;
+  transition-delay: 0s; /* salida */
+  z-index: 1;
+}
+.link-borde:hover .border-right {
+  height: 100%;
+  transition-delay: 0.9s; /* entrada */
+}
+
+/* Color en hover */
+.link-borde:hover {
+  color: white;
+}
+
+
+.perfil-animado {
+  border: 3px solid #0d6efd;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 0 0 10px #0d6efd, 0 0 20px rgba(13, 110, 253, 0.5);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px #0d6efd, 0 0 20px rgba(13, 110, 253, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px #0d6efd, 0 0 40px rgba(13, 110, 253, 0.8);
+  }
+}
+
+
+
+.card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  border: 2px solid #fff; /* celeste Bootstrap */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
+}
+
+    .fondo_texto {
+    background: #230b4ed9;
+    border-radius: 5px;
+    padding: 1rem;
+}
+    .tech-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tech-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
+  border-color: #0d6efd;
+}
+.project-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.15);
+  border-color: #0d6efd;
+}
+.project-card img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+  </style>
+</head>
+<body class="px-2">
+<div id="tsparticles" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0;"></div>
+
+
+  <button class="navbar-toggler" type="button" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+  </button>
+  <section id="menu">
+    <h1 class="text-white">Franco López Pintos</h1>
+    <a class="nav-link" href="#inicio">Inicio</a>
+    <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+    <a class="nav-link" href="#servicios">Servicios</a>
+    <a class="nav-link" href="#proyectos">Proyectos</a>
+    <a class="nav-link" href="#stack">Tecnologias</a>
+    <a class="nav-link" href="#contacto">Contacto</a>
+
+  </section>
+
+  <header id="inicio">
+    <h1 class="text-white">Franco López Pintos</h1>
+    <img src="img/yo.png" class="card-img-top perfil-animado" title="Hola!" alt="Franco López Pintos" width="200" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; border: 3px solid #0d6efd; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <p style="margin-top: 1rem">Desarrollador Full Stack | Formación en IA en curso</p>
+    <div>
+      <a href="#sobre-mi" class="link-borde m-2">
+  <span>Sobre mí</span>
+  <div class="border-left"></div>
+  <div class="border-right"></div>
+</a>
+
+<a href="#servicios" class="link-borde m-2">
+  <span>Servicios</span>
+  <div class="border-left"></div>
+  <div class="border-right"></div>
+</a>
+
+<a href="#proyectos" class="link-borde m-2">
+  <span>Proyectos</span>
+ <div class="border-left"></div>
+  <div class="border-right"></div>
+</a>
+
+      <a href="#stack" class="link-borde m-2">
+  <span>Tecnologías</span>
+ <div class="border-left"></div>
+  <div class="border-right"></div>
+</a>
+
+      <a href="#contacto" class="link-borde m-2">
+  <span>Contacto</span>
+ <div class="border-left"></div>
+  <div class="border-right"></div>
+</a>
+
+
+    </div>
+  </header>
+
+  <section id="sobre-mi" class="container py-5 fade-in ">
+  <h3 class="text-primary text-center mb-5">Sobre mí</h3>
+  <div class="row">
+
+    <div class="col-md-6 text-justify fondo_texto">
+      <p>
+        Soy <strong>Franco López Pintos</strong>, desarrollador Full Stack con experiencia en aplicaciones para el análisis policial y la automatización de procesos. Desarrollo soluciones a medida, adaptadas a contextos exigentes y con visión estratégica.
+      </p>
+      <p>
+        Me especializo en tecnologías como <strong>Django</strong>, <strong>PostgreSQL</strong> y <strong>JavaScript</strong>, combinando desarrollo backend robusto con interfaces eficientes y visualización de datos.
+      </p>
+      <p>
+        Actualmente curso una <strong>especialización en Inteligencia Artificial</strong>, enfocada en la integración de modelos predictivos, análisis de datos y automatización inteligente.
+      </p>
+      <p>
+        Me motiva crear herramientas útiles, seguras y pensadas para mejorar el acceso a la información. Apunto a proyectos con impacto real y enfoque técnico claro.
+      </p>
+    </div>
+
+    <div class="col-md-6 text-center mt-4 mt-md-0">
+      <div class="d-flex flex-column align-items-center gap-4">
+        <div>
+          <i class="fas fa-code fa-2x text-primary mb-2"></i>
+          <p class="mb-0">Full Stack</p>
+          <small>Python, Django, JavaScript</small>
+        </div>
+        <div>
+          <i class="fas fa-brain fa-2x text-primary mb-2"></i>
+          <p class="mb-0">Especialización en IA</p>
+          <small>En curso | Análisis inteligente</small>
+        </div>
+        <div>
+          <i class="fas fa-database fa-2x text-primary mb-2"></i>
+          <p class="mb-0">Gestión de datos</p>
+          <small>PostgreSQL, APIs, visualización</small>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+ <section id="servicios" class="container py-5 fade-in">
+  <h3 class="text-primary text-center mb-5">Servicios</h3>
+  <div class="row g-4 text-justify">
+
+    <!-- Servicio 1 -->
+    <div class="col-md-4">
+      <div class="card h-100 text-center border-0 fondo_texto text-light shadow-sm p-3">
+        <i class="fas fa-laptop-code fa-2x text-primary mb-3"></i>
+        <h5>Desarrollo Web</h5>
+        <p style="text-align: justify;">
+          Diseño y construcción de sistemas web modernos, APIs seguras y paneles administrativos personalizados usando Django, Bootstrap y PostgreSQL.
+        </p>
+      </div>
+    </div>
+
+    <!-- Servicio 2 -->
+    <div class="col-md-4">
+      <div class="card h-100 text-center border-0 fondo_texto text-light shadow-sm p-3">
+        <i class="fas fa-robot fa-2x text-primary mb-3"></i>
+        <h5>Inteligencia Artificial</h5>
+        <p style="text-align: justify;">
+          Implementación de soluciones con IA aplicada: clasificación de datos, detección de patrones, automatización de tareas y reconocimiento visual.
+        </p>
+      </div>
+    </div>
+
+    <!-- Servicio 3 -->
+    <div class="col-md-4">
+      <div class="card h-100 text-center border-0 fondo_texto text-light shadow-sm p-3">
+        <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+        <h5>Análisis y Visualización</h5>
+        <p style="text-align: justify;">
+          Integración de datos con mapas, dashboards, filtros interactivos y generación de informes visuales orientados a la toma de decisiones.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="proyectos" class="container py-5">
+    <h3 class="text-primary mb-4 fade-in">Proyectos</h3>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+      <div class="project-card shadow-sm p-3 rounded fondo_texto h-100 border border-secondary">
+        <img src="https://placehold.co/600x400/001972/ffffff?text=ARGOS" alt="ARGOS" class="img-fluid rounded mb-3">
+        <h5 class="text-white">ARGOS</h5>
+        <p class="text-secondary">Sistema de análisis policial con mapas, filtros, geodatos y funcionalidades IA. Desarrollado con Django, Leaflet y PostgreSQL.</p>
+        <div class="mb-2">
+          <span class="badge bg-primary">Django</span>
+          <span class="badge bg-warning text-dark">PostgreSQL</span>
+          <span class="badge bg-info text-dark">Leaflet</span>
+        </div>
+        <a href="#" class="btn btn-outline-light btn-sm mt-2 disabled">Demo privada</a>
+      </div>
+    </div>
+
+      <div class="col-md-6 col-lg-4">
+  <div class="project-card shadow-sm p-3 rounded fondo_texto h-100 border border-secondary">
+    <img src="https://placehold.co/600x400/333/ffffff?text=BuffaloVision" alt="BuffaloVision" class="img-fluid rounded mb-3">
+    <h5 class="text-white">BuffaloVision</h5>
+    <p class="text-secondary">
+      Plataforma de reconocimiento facial en imágenes y videos para identificación de personas. Utiliza IA, visión por computadora y análisis forense. Orientado a entornos de seguridad e investigación.
+    </p>
+    <div class="mb-2">
+      <span class="badge bg-primary">Django</span>
+      <span class="badge bg-success">OpenCV</span>
+      <span class="badge bg-info text-dark">Face Recognition</span>
+    </div>
+    <a href="#" class="btn btn-outline-light btn-sm mt-2 disabled">Demo privada</a>
+  </div>
+</div>
+
+
+      <div class="col-md-6 col-lg-4">
+  <div class="project-card shadow-sm p-3 rounded fondo_texto h-100 border border-secondary">
+    <img src="portfolio/fronterita/inicio.png" alt="Fronterita.com" class="img-fluid rounded mb-3">
+    <h5 class="text-white">Fronterita.com</h5>
+    <p class="text-secondary">
+      Plataforma de clasificados en desarrollo para Rivera y Livramento. La versión original fue desarrollada con PHP y MySQL. Actualmente se está reconstruyendo con Django y PostgreSQL.
+    </p>
+    <div class="mb-2">
+      <span class="badge bg-primary">Django</span>
+      <span class="badge bg-success">Bootstrap</span>
+      <span class="badge bg-warning text-dark">PostgreSQL</span>
+      <span class="badge bg-secondary">PHP</span>
+      <span class="badge bg-light text-dark">MySQL</span>
+    </div>
+    <a href="https://web.archive.org/web/20160327074338/http://fronterita.com/" target="_blank" class="btn btn-outline-light btn-sm mt-2">Ver versión anterior</a>
+  </div>
+</div>
+
+      <div class="col-md-6 col-lg-4">
+  <div class="project-card shadow-sm p-3 rounded fondo_texto h-100 border border-secondary">
+    <img src="https://placehold.co/600x400/aeadad/333?text=Inmobiliaria Berrutti" alt="Inmobiliaria Berrutti" class="img-fluid rounded mb-3">
+    <h5 class="text-white">Inmobiliaria Berrutti</h5>
+    <p class="text-secondary small">
+      Desarrollé este sitio web durante mi etapa como programador freelance, utilizando PHP, MySQL y Bootstrap.
+      Permitía la carga, búsqueda y visualización de propiedades con interfaz responsiva.
+    </p>
+    <div class="mb-2">
+      <span class="badge bg-secondary">PHP</span>
+      <span class="badge bg-light text-dark">MySQL</span>
+      <span class="badge bg-success">Bootstrap</span>
+    </div>
+    <a href="https://web.archive.org/web/20160323032334/http://inmobiliariaberrutti.com/" target="_blank" class="btn btn-outline-light btn-sm mt-2">Ver archivo</a>
+  </div>
+</div>
+
+
+
+    </div>
+  </section>
+
+<section id="stack" class="container py-5 fade-in">
+  <h3 class="text-primary text-center mb-5">Tecnologías</h3>
+  <div class="row justify-content-center g-4">
+
+    <!-- Python -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fab fa-python fa-2x text-warning mb-2"></i>
+        <p class="mb-0">Python</p>
+      </div>
+    </div>
+
+    <!-- Django -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fas fa-feather-alt fa-2x text-success mb-2"></i>
+        <p class="mb-0">Django</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+  <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+    <i class="fab fa-php fa-2x text-light mb-2"></i>
+    <p class="mb-0">PHP</p>
+  </div>
+</div>
+
+<!-- Laravel -->
+<div class="col-6 col-md-3 col-lg-2 text-center">
+  <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+    <i class="fab fa-laravel fa-2x text-danger mb-2"></i>
+    <p class="mb-0">Laravel</p>
+  </div>
+</div>
+
+    <!-- PostgreSQL -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fas fa-database fa-2x text-info mb-2"></i>
+        <p class="mb-0">PostgreSQL</p>
+      </div>
+    </div>
+
+    <!-- Leaflet -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fas fa-map-marked-alt fa-2x text-success mb-2"></i>
+        <p class="mb-0">Leaflet</p>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fab fa-bootstrap fa-2x text-primary mb-2"></i>
+        <p class="mb-0">Bootstrap</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fab fa-js-square fa-2x text-warning mb-2"></i>
+        <p class="mb-0">JavaScript</p>
+      </div>
+    </div>
+
+    <!-- HTML/CSS -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fab fa-html5 fa-2x text-danger mb-1"></i>
+        <p class="mb-0">HTML5 / CSS3</p>
+      </div>
+    </div>
+
+    <!-- Git / GitLab -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fab fa-git-alt fa-2x text-warning mb-2"></i>
+        <p class="mb-0">Git & GitLab</p>
+      </div>
+    </div>
+
+    <!-- IA -->
+    <div class="col-6 col-md-3 col-lg-2 text-center">
+      <div class="fondo_texto rounded p-3 shadow-sm border border-secondary tech-box">
+        <i class="fas fa-brain fa-2x text-pink mb-2"></i>
+        <p class="mb-0">IA aplicada</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contacto" class="container py-5 fade-in">
+  <h3 class="text-primary mb-4">Contacto</h3>
+  <div class="row justify-content-center fondo_texto">
+    <div class="col-md-8 text-center">
+      <p class="fs-5 mb-4" style="text-align: justify;">
+        Si querés contactarme para colaborar o desarrollar un proyecto, podés escribirme directamente a mi correo o encontrarme en redes sociales:
+      </p>
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4 fs-5">
+        <a href="mailto:franco.lopezpintos@gmail.com" class="text-decoration-none text-white">
+          <i class="fas fa-envelope text-primary me-2"></i> franco.lopezpintos@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/francolopezpintos" target="_blank" class="text-decoration-none text-white">
+          <i class="fab fa-linkedin text-primary me-2"></i> LinkedIn
+        </a>
+        <a href="https://github.com/francolopezpintos" target="_blank" class="text-decoration-none text-white">
+          <i class="fab fa-github text-primary me-2"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="fondo_texto">
+    &copy; 2025 Franco López Pintos. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.style.opacity = 1;
+      const toggler = document.querySelector('.navbar-toggler');
+      const menu = document.getElementById('menu');
+      const navLinks = document.querySelectorAll('#menu .nav-link');
+
+      toggler.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.toggle('menu-open');
+        const expanded = toggler.getAttribute('aria-expanded') === 'true';
+        toggler.setAttribute('aria-expanded', !expanded);
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('fadeInMenu');
+          menu.classList.add('fadeOutMenu');
+          setTimeout(() => {
+            document.body.classList.remove('menu-open');
+            toggler.setAttribute('aria-expanded', 'false');
+            menu.classList.remove('fadeOutMenu');
+          }, 300);
+        });
+      });
+
+      // Intersection Observer para animar fade-in al hacer scroll
+      const faders = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      faders.forEach(fader => observer.observe(fader));
+
+
+      tsParticles.load("tsparticles", {
+  background: {
+    color: {
+      value: "transparent"
+    }
+  },
+  particles: {
+    number: {
+      value: 80
+    },
+    color: {
+      value: "#00ffff"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: 3
+    },
+    move: {
+      enable: true,
+      speed: 0.5
+    },
+    links: {
+      enable: true,
+      distance: 130,
+      color: "#00ffff",
+      opacity: 0.3,
+      width: 1
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    },
+    modes: {
+      repulse: { distance: 100 },
+      push: { quantity: 4 }
+    }
+  },
+  detectRetina: true
+});
+
+
+    });
+  </script>
+</body>
+</html>
