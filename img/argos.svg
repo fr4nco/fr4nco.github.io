@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 145.32768 30.282833" width="145.33mm" height="30.28mm" role="img" aria-label="ARGOS">
+<!--
+  ARGOS — logo animado (≈3.6 s, se reproduce una vez y queda vigilando con una mirada ocasional a los lados)
+  1. La mira (O) entra en cuatro piezas y se traba sobre el centro.
+  2. El ojo se abre.
+  3. Un haz sale del ojo y revela G-R-A hacia la izquierda y S hacia la derecha.
+  4. El ojo mira a la izquierda, a la derecha y vuelve al centro; luego repite cada tanto.
+-->
+<style>
+  .p{transform-box:fill-box}
+  .bg{fill:#00002c}
+  .w{fill:#fff;stroke:#fff;stroke-width:.132;fill-rule:evenodd;stroke-linejoin:bevel}
+
+  .ring{transform-origin:center;animation:ringIn .7s cubic-bezier(.2,.9,.25,1) both}
+  .q{animation:lock .6s cubic-bezier(.2,.9,.3,1.1) both}
+  .q1{--x:-7px;--y:-7px}.q2{--x:7px;--y:-7px}.q3{--x:-7px;--y:7px}.q4{--x:7px;--y:7px}
+  .flash{transform-origin:center;opacity:0;animation:flash .5s .55s ease-out forwards}
+  .iris{transform-origin:center;animation:open .45s .7s cubic-bezier(.3,1.5,.5,1) both}
+  .pupil{transform-origin:center;animation:dilate .7s 1s ease-in-out both}
+  .beam{transform-origin:center;opacity:0;animation:beam .8s .95s ease-out forwards}
+  .ltr{animation:reveal .55s cubic-bezier(.2,.8,.2,1) both}
+  .G{--x:9px;animation-delay:1.05s}.R{--x:13px;animation-delay:1.15s}.A{--x:17px;animation-delay:1.25s}.S{--x:-9px;animation-delay:1.05s}
+  .tri{transform-origin:50% 100%;animation:grow .4s 1.45s cubic-bezier(.3,1.5,.5,1) both}
+  .look{animation:look 1.6s 2s ease-in-out both,watch 8s 4.5s ease-in-out infinite}
+
+  @keyframes ringIn{from{transform:rotate(-120deg);opacity:0}30%{opacity:1}to{transform:none}}
+  @keyframes lock{from{transform:translate(var(--x),var(--y))}to{transform:none}}
+  @keyframes flash{0%{opacity:.9;transform:scale(.7)}100%{opacity:0;transform:scale(1.9)}}
+  @keyframes open{from{transform:scaleY(0)}to{transform:none}}
+  @keyframes dilate{0%,100%{transform:none}45%{transform:scale(.7)}}
+  @keyframes beam{0%{opacity:1;transform:scaleX(0)}60%{opacity:.9}100%{opacity:0;transform:scaleX(1)}}
+  @keyframes reveal{from{opacity:0;transform:translateX(var(--x))}to{opacity:1;transform:none}}
+  @keyframes grow{from{transform:scale(0)}to{transform:none}}
+  /* mirada: izquierda → derecha → centro */
+  @keyframes look{0%,100%{transform:none}18%,38%{transform:translateX(-2.3px)}58%,80%{transform:translateX(2.3px)}}
+  /* vigilancia en reposo: pausa larga, luego un vistazo a cada lado */
+  @keyframes watch{0%,55%,100%{transform:none}62%,70%{transform:translateX(2.3px)}78%,88%{transform:translateX(-2.3px)}}
+</style>
+<defs>
+  <linearGradient id="ag18"><stop offset=".377" stop-color="#2b7ec5"/><stop offset=".994" stop-color="#3eccff" stop-opacity=".88"/></linearGradient>
+  <linearGradient id="agTri" href="#ag18" xlink:href="#ag18" x1="19.130747" y1="156.02444" x2="31.591553" y2="156.02444" gradientUnits="userSpaceOnUse"/>
+  <linearGradient id="ag20"><stop offset="0" stop-color="#2b4bc5"/><stop offset="1" stop-color="#2ba4c5"/></linearGradient>
+  <linearGradient id="agIris" href="#ag20" xlink:href="#ag20" x1="117.38596" y1="149.88556" x2="104.10263" y2="149.88556" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.1540733,0,0,1.1540733,-17.062749,-23.093375)"/>
+  <linearGradient id="agBeam"><stop offset="0" stop-color="#3eccff" stop-opacity="0"/><stop offset=".5" stop-color="#bff0ff"/><stop offset="1" stop-color="#3eccff" stop-opacity="0"/></linearGradient>
+  <radialGradient id="agFlash"><stop offset=".5" stop-color="#3eccff" stop-opacity="0"/><stop offset=".78" stop-color="#7fdcff" stop-opacity=".9"/><stop offset="1" stop-color="#3eccff" stop-opacity="0"/></radialGradient>
+</defs>
+
+
+<g transform="translate(-8.9643534,-134.75176)">
+  <!-- haz de escaneo -->
+  <rect class="beam p" x="9" y="149.7" width="145" height=".35" fill="url(#agBeam)"/>
+
+  <!-- letras -->
+  <g class="ltr A p">
+    <path class="w" d="m 9.0229067,161.98266 7.0587363,-0.12276 9.329809,-17.18649 9.022907,17.30925 6.506313,-0.0614 -12.153302,-25.22731 -6.506314,0.0614 z"/>
+    <path class="tri p" fill="url(#agTri)" stroke="#000" stroke-width=".132" d="m 25.205931,150.09458 -6.01623,11.825 12.343645,-0.10373 z"/>
+  </g>
+  <path class="w ltr R p" d="m 39.958586,136.87811 3.253158,5.83113 h 14.056093 c 0,0 2.1649,0.54245 2.209691,2.39383 0.06682,2.762 -1.780029,2.63936 -2.209691,2.70074 -0.429662,0.0614 -14.731275,0.0614 -14.731275,0.0614 l 0.122759,14.17885 6.138031,-0.18414 v -7.97944 l 8.593246,7.97944 9.63671,0.0614 -10.557416,-9.32981 c 0,0 11.109838,0.67518 9.882232,-8.04082 -1.133174,-8.04554 -9.391188,-7.61116 -9.391188,-7.61116 z"/>
+  <path class="w ltr G p" d="m 79.733033,156.45843 c 3.375919,0.67519 8.286343,0.0614 8.286343,0.0614 v -3.86696 h -7.488399 l 0.06138,-5.09456 13.380911,0.12278 v 14.24023 l -15.40646,-0.0614 c 0,0 -12.244162,-2.51552 -10.373274,-13.87195 1.546613,-9.38805 10.925695,-10.9257 10.925695,-10.9257 l 14.854039,-0.12276 -0.06138,5.76975 -13.810572,0.0614 c 0,0 -5.724933,1.16275 -5.892509,7.12012 -0.158867,5.64776 5.524227,6.56769 5.524227,6.56769 z"/>
+  <path class="w ltr S p" d="m 154.22591,136.91643 -3.63863,5.71785 -15.75006,-0.052 c 0,0 -1.71536,0.46783 -1.71536,1.71535 0,1.92328 1.03961,2.1312 1.55942,2.23516 0.5198,0.10396 12.42332,0.46783 12.42332,0.46783 0,0 6.11395,0.88381 6.34161,6.60151 0.22336,5.60968 -2.73846,7.03947 -6.80944,8.26489 -0.28067,0.0845 -21.46791,0 -21.46791,0 l 3.58665,-5.30201 17.10156,0.10394 c 0,0 1.47056,-0.36445 1.50743,-2.02723 0.0357,-1.61184 -1.61139,-1.81932 -1.61139,-1.81932 l -11.85154,-0.31188 c 0,0 -6.80944,-1.35149 -6.80944,-7.90103 0,-5.26261 5.56191,-7.43319 6.75746,-7.64112 1.19555,-0.20792 20.37632,-0.052 20.37632,-0.052 z"/>
+
+  <!-- la O: mira + ojo -->
+  <g>
+    <g class="ring p">
+      <path class="w q q1 p" stroke-width=".097" d="M 109.60298,134.80028 a 15.61904,15.133703 0 0 0 -14.422357,13.89019 h 4.826417 a 10.643836,10.313094 0 0 1 9.59594,-8.85569 z"/>
+      <path class="w q q2 p" stroke-width=".097" d="M 111.89738,134.80028 v 5.07689 a 10.643836,10.313094 0 0 1 9.19541,8.8133 h 5.22696 a 15.61904,15.133703 0 0 0 -14.42237,-13.89019 z"/>
+      <path class="w q q3 p" stroke-width=".097" d="M 95.171696,150.98485 a 15.61904,15.133703 0 0 0 14.431284,14.0012 v -4.60663 a 10.643836,10.313094 0 0 1 -9.658407,-9.39457 z"/>
+      <path class="w q q4 p" stroke-width=".097" d="M 121.15527,150.98485 a 10.643836,10.313094 0 0 1 -9.25789,9.35217 v 4.64903 a 15.61904,15.133703 0 0 0 14.43129,-14.0012 z"/>
+    </g>
+    <ellipse class="flash p" cx="110.74429" cy="149.88556" rx="9" ry="9.2" fill="url(#agFlash)"/>
+    <g class="iris p">
+      <g class="look p">
+        <ellipse cx="110.74429" cy="149.88556" rx="7.5886369" ry="7.7686048" fill="url(#agIris)" stroke="#0146ff" stroke-width=".153"/>
+        <ellipse class="pupil p" cx="110.80875" cy="150.00902" rx="4.3665013" ry="4.4700546" fill="#02182c" stroke="#2c16d8" stroke-width=".088"/>
+      </g>
+      <!-- reflejo de luz: fijo, no sigue la mirada -->
+      <ellipse cx="113.70414" cy="146.71207" rx="1.8607804" ry="1.9049095" fill="#fff7f7" stroke="#000" stroke-width=".037"/>
+    </g>
+  </g>
+</g>
+</svg>
